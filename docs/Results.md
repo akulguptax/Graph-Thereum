@@ -1,8 +1,6 @@
 
 # GraphThereum
 
-Akul Gupta
-
 The goal of this project was to analyze the recent transactions on the Ethereum blockchain, to better understand the costs/inefficiencies of utilizing such a blockchain network, as well as to prove or disprove the concept of decentralization.
 
 Began by accessing the most recent ~1.4 million transactions on the network as our dataset.
