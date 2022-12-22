@@ -1,11 +1,11 @@
 
 # GraphThereum
 
-Aman Khinvasara, Amaan Khan, Akul Gupta, and Neil Kaushikkar
+Akul Gupta
 
-We began this final project with the goal of analyzing the recent transactions on the Ethereum blockchain, to better understand the costs/inefficiencies of utilizing such a blockchain network, as well as to prove or disprove the concept of decentralization.
+The goal of this project was to analyze the recent transactions on the Ethereum blockchain, to better understand the costs/inefficiencies of utilizing such a blockchain network, as well as to prove or disprove the concept of decentralization.
 
-We began by accessing the most recent ~1.4 million transactions on the network as our dataset.
+Began by accessing the most recent ~1.4 million transactions on the network as our dataset.
 
 Our first basic algorithm was a basic Breadth First Search/Traversal. Through the execution of this algorithm, which took about 10.7 seconds to run on EWS, we found out that these 1.4 million transactions (more precisely 1365188 edges) occured among only 123496 addresses on the network (vertices). The fact that there were 10 times as many transactions as there were individuals involved in the transaction was neither particularly surprising nor concerning. It is reasonable to expect that an individual who uses the network would use it more than once to transact. Additionally, the number wasn't extremely high, which would be concerning from a decentralization perspective. 
 
@@ -16,14 +16,14 @@ Here is the terminal output from running the BFS:
 
 However, admittedly, this simple average heuristic is limited in the amount it can inform us about the decentralization (or lack thereof) of this network. For that, we will use the betweeness centrality algorithm, whose results you will see later.
 
-After that, we also ran dijkstra's algorithm in a rather interesting way. We identified the largest connected component and treated it as a graph in isolation. We chose an arbitrary start vertex and then used dijsktra's algorithm to calculate the minimum Gas Cost from every other vertex to that vertex. This serves to estimate the cost of a direct transaction between the fixed start address and every other person on this connected component of the blockchain. As visible from the two visualizations below, the vast majority of the estimated transactions were concentrated between about 1.6M and 1.9M units. This is highlighted in the standard histogram, as well as in the violin chart. 
+After that, ran dijkstra's algorithm in a rather interesting way. We identified the largest connected component and treated it as a graph in isolation. Chose an arbitrary start vertex and then used dijsktra's algorithm to calculate the minimum Gas Cost from every other vertex to that vertex. This serves to estimate the cost of a direct transaction between the fixed start address and every other person on this connected component of the blockchain. As visible from the two visualizations below, the vast majority of the estimated transactions were concentrated between about 1.6M and 1.9M units. This is highlighted in the standard histogram, as well as in the violin chart. 
 
 With a fairly small standard deviation, we can be fairly confident that most direct transactions would cost about 1.75M Wei. 
 
 ![Alt text](img/dijkstra_visualization_histogram.PNG?raw=true "Estimated Gas Costs - Histogram")
 ![Alt text](img/dijkstra_visualization.PNG?raw=true "Estimated Gas Costs - Violin Chart")
 
-We also ran some basic statistics on the output file to understand the quantitative breakdown:
+Ran some basic statistics on the output file to understand the quantitative breakdown:
 
 * Average - 1.753 M 
 * StdDev - 0.169 M
@@ -33,7 +33,7 @@ We also ran some basic statistics on the output file to understand the quantitat
 * Max - 6.423 M
 
 
-After all of this, we arrived at arguably the most exciting and impactful part of this project. Again, for context, one of the core concepts, technically, economically, and even philosophically, of the blockchain movement is decentralization. We set out to use Betweenness Centrality to identify how truly decentralized the Ethereum blockchain network is. The first image provides proof of successfully running the Betweeness Centrality Algorithm based on the terminal output.
+After all of this, arrived at arguably the most exciting and impactful part of this project. Again, for context, one of the core concepts, technically, economically, and even philosophically, of the blockchain movement is decentralization. Set out to use Betweenness Centrality to identify how truly decentralized the Ethereum blockchain network is. The first image provides proof of successfully running the Betweeness Centrality Algorithm based on the terminal output.
 
 ![Alt text](img/bc_proof.png?raw=true "Successful Run of Betweenness Centrality")
 
@@ -48,4 +48,4 @@ Another useful, and even simpler, way of understanding the decentralization aspe
 
 ![Alt text](img/bc_proportion.png?raw=true "Betweenness Centrality Scores as Percentages, all Negligible")
 
-Using these powerful graph algorithms, we learned an immense amount both about the technical implementation of these algorithms and even more excitingly, about the Ethereum blockchain. It was very interesting to understand the transaction cost structure, as well as to validate that the network was indeed highly decentralized. This was a very exciting project that we are all very happy we had the opportunity to participate in!
+Using these powerful graph algorithms, learned an immense amount both about the technical implementation of these algorithms and even more excitingly, about the Ethereum blockchain. It was very interesting to understand the transaction cost structure, as well as to validate that the network was indeed highly decentralized.
